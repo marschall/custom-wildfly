@@ -19,8 +19,8 @@
   ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
   ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
   -->
-<server-provisioning xmlns="urn:wildfly:server-provisioning:1.0" extract-schemas="true" copy-module-artifacts="true">
+<server-provisioning xmlns="urn:wildfly:server-provisioning:1.0" extract-schemas="false" copy-module-artifacts="true">
     <feature-packs>
-        <feature-pack groupId="org.wildfly" artifactId="wildfly-feature-pack" version="${project.version}"/>
+        <feature-pack groupId="com.github.marschall" artifactId="custom-wildfly-feature-pack" version="${project.version}"/>
     </feature-packs>
 </server-provisioning>

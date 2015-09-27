@@ -9,8 +9,8 @@
   <packaging>pom</packaging>
   <inceptionYear>2015</inceptionYear>
   <url>https://github.com/marschall/custom-wildfly</url>
-  <name>Lists</name>
-  <description>Special purpose implementations of java.util.List</description>
+  <name>Custom WildFly</name>
+  <description>A custom WildFly distribution</description>
 
   <prerequisites>
     <maven>3.0</maven>

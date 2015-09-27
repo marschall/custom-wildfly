@@ -29,7 +29,18 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <!-- <dependency> <groupId>org.wildfly</groupId> <artifactId>wildfly-servlet-feature-pack</artifactId> 
+      <version>${wildfly.version}</version> <type>zip</type> <exclusions> <exclusion> 
+      <groupId>*</groupId> <artifactId>*</artifactId> </exclusion> </exclusions> 
+      </dependency> <dependency> <groupId>org.wildfly</groupId> <artifactId>wildfly-feature-pack</artifactId> 
+      <version>${wildfly.version}</version> <type>zip</type> <exclusions> <exclusion> 
+      <groupId>*</groupId> <artifactId>*</artifactId> </exclusion> </exclusions> 
+      </dependency> -->
   </dependencies>
+
+  <!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.slf4j</groupId> 
+    <artifactId>slf4j-api</artifactId> <version>1.7.7</version> </dependency> 
+    </dependencies> </dependencyManagement> -->
 
   <build>
     <finalName>${server.output.dir.prefix}-${project.version}</finalName>
@@ -77,4 +88,8 @@
       </plugin>
     </plugins>
   </build>
+
+  <properties>
+    <server.output.dir.prefix>wildfly</server.output.dir.prefix>
+  </properties>
 </project>
