@@ -6,27 +6,21 @@
     <artifactId>custom-wildfly</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>custom-wildfly-feature-pack</artifactId>
+  <artifactId>custom-wildfly-dist</artifactId>
   <packaging>pom</packaging>
 
   <dependencies>
-    <!-- feature pack dependencies -->
     <dependency>
-      <groupId>org.wildfly</groupId>
-      <artifactId>wildfly-servlet-feature-pack</artifactId>
-      <version>${wildfly.version}</version>
-      <type>zip</type>
-      <exclusions>
-        <exclusion>
-          <groupId>*</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>custom-wildfly-feature-pack</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.wildfly</groupId>
-      <artifactId>wildfly-feature-pack</artifactId>
-      <version>${wildfly.version}</version>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>custom-wildfly-feature-pack</artifactId>
+      <version>${project.version}</version>
       <type>zip</type>
       <exclusions>
         <exclusion>
@@ -42,24 +36,24 @@
     <plugins>
       <plugin>
         <groupId>org.wildfly.build</groupId>
-        <artifactId>wildfly-feature-pack-build-maven-plugin</artifactId>
+        <artifactId>wildfly-server-provisioning-maven-plugin</artifactId>
         <version>1.1.0.CR1</version>
         <executions>
           <execution>
-            <id>feature-pack-build</id>
+            <id>server-provisioning</id>
             <goals>
               <goal>build</goal>
             </goals>
             <phase>compile</phase>
             <configuration>
-              <config-file>feature-pack-build.xml</config-file>
+              <config-file>server-provisioning.xml</config-file>
             </configuration>
           </execution>
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.5.5</version>
         <executions>
           <execution>
             <id>assemble</id>
@@ -71,7 +65,8 @@
               <descriptors>
                 <descriptor>assembly.xml</descriptor>
               </descriptors>
-              <finalName>${project.build.finalName}</finalName>
+              <recompressZippedFiles>true</recompressZippedFiles>
+              <finalName>${server.output.dir.prefix}-${project.version}</finalName>
               <appendAssemblyId>false</appendAssemblyId>
               <outputDirectory>${project.build.directory}</outputDirectory>
               <workDirectory>${project.build.directory}/assembly/work</workDirectory>
@@ -82,5 +77,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>

@@ -18,6 +18,7 @@
 
   <modules>
     <module>custom-wildfly-feature-pack</module>
+    <module>custom-wildfly-dist</module>
   </modules>
 
   <developers>
